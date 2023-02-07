@@ -1,0 +1,107 @@
+<h4>RGB Led Strip Control</h4>
+
+<div>
+
+	<div class="checkbox-wrapper">
+		<div style="display: inline-block; transform: translateY(-20%);">Lights enabled</div>
+		<label class="switch" for="lights_enabled"> 
+			<input type="checkbox" id="lights_enabled" data-bind="checked: settings.plugins.rgbstatus.lights_enabled" />
+			<div class="slider round"></div>
+		</label>
+	</div>
+</div>   
+
+<table>
+	<tr>
+		<td class="color-name"> Startup color: </div></td>
+		<td class="hex-color"><input type="text" class="color-text" data-bind="value: settings.plugins.rgbstatus.startup_color"></td>
+		<td class="rgb-color"><input type="color" class="color-rgb" id="idle-color-picker" data-bind="value: settings.plugins.rgbstatus.startup_color"></td>
+		<td class="pattern">
+			<select name="startup_pattern" data-bind="value: settings.plugins.rgbstatus.startup_pattern">
+			  <option value="0">Constant</option>
+			  <option value="1">Fast pulsing</option>
+			  <option value="2">Normal pulsing</option>
+			  <option value="3">Slow pulsing</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="color-name"> Idle Color: </div></td>
+		<td class="hex-color"><input type="text" class="color-text" data-bind="value: settings.plugins.rgbstatus.idle_color"></td>
+		<td class="rgb-color"><input type="color" class="color-rgb" id="idle-color-picker" data-bind="value: settings.plugins.rgbstatus.idle_color"></td>
+		<td class="pattern">
+			<select name="idle_pattern" data-bind="value: settings.plugins.rgbstatus.idle_pattern">
+			  <option value="0">Constant</option>
+			  <option value="1">Fast pulsing</option>
+			  <option value="2">Normal pulsing</option>
+			  <option value="3">Slow pulsing</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="color-name"> Paused Color: </div></td>
+		<td class="hex-color"><input type="text" class="color-text" data-bind="value: settings.plugins.rgbstatus.paused_color"></td>
+		<td class="rgb-color"><input type="color" class="color-rgb" id="idle-color-picker" data-bind="value: settings.plugins.rgbstatus.paused_color"></td>
+		<td class="pattern">
+			<select name="paused_pattern" data-bind="value: settings.plugins.rgbstatus.paused_pattern">
+			  <option value="0">Constant</option>
+			  <option value="1">Fast pulsing</option>
+			  <option value="2">Normal pulsing</option>
+			  <option value="3">Slow pulsing</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="color-name"> Heating Color: </div></td>
+		<td class="hex-color"><input type="text" class="color-text" data-bind="value: settings.plugins.rgbstatus.heating_color"></td>
+		<td class="rgb-color"><input type="color" class="color-rgb" id="idle-color-picker" data-bind="value: settings.plugins.rgbstatus.heating_color"></td>
+		<td class="pattern">
+			<select name="heating_pattern" data-bind="value: settings.plugins.rgbstatus.heating_pattern">
+			  <option value="0">Constant</option>
+			  <option value="1">Fast pulsing</option>
+			  <option value="2">Normal pulsing</option>
+			  <option value="3">Slow pulsing</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="color-name"> Error Color: </div></td>
+		<td class="hex-color"><input type="text" class="color-text" data-bind="value: settings.plugins.rgbstatus.error_color"></td>
+		<td class="rgb-color"><input type="color" class="color-rgb" id="idle-color-picker" data-bind="value: settings.plugins.rgbstatus.error_color"></td>
+		<td class="pattern">
+			<select name="error_pattern" data-bind="value: settings.plugins.rgbstatus.error_pattern">
+			  <option value="0">Constant</option>
+			  <option value="1">Fast pulsing</option>
+			  <option value="2">Normal pulsing</option>
+			  <option value="3">Slow pulsing</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="color-name"> Printing Color: </div></td>
+		<td class="hex-color"><input type="text" class="color-text" data-bind="value: settings.plugins.rgbstatus.printing_color"></td>
+		<td class="rgb-color"><input type="color" class="color-rgb" id="idle-color-picker" data-bind="value: settings.plugins.rgbstatus.printing_color"></td>
+		<td class="pattern">
+			<select name="printing_pattern" data-bind="value: settings.plugins.rgbstatus.printing_pattern">
+			  <option value="0">Constant</option>
+			  <option value="1">Fast pulsing</option>
+			  <option value="2">Normal pulsing</option>
+			  <option value="3">Slow pulsing</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="color-name"> Finished Color: </div></td>
+		<td class="hex-color"><input type="text" class="color-text" data-bind="value: settings.plugins.rgbstatus.finished_color"></td>
+		<td class="rgb-color"><input type="color" class="color-rgb" id="idle-color-picker" data-bind="value: settings.plugins.rgbstatus.finished_color"></td>
+		<td class="pattern">
+			<select name="finished_pattern" data-bind="value: settings.plugins.rgbstatus.finished_pattern">
+			  <option value="0">Constant</option>
+			  <option value="1">Fast pulsing</option>
+			  <option value="2">Normal pulsing</option>
+			  <option value="3">Slow pulsing</option>
+			</select>
+		</td>
+	</tr>
+			
+</table>

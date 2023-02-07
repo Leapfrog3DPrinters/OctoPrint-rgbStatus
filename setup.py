@@ -18,7 +18,7 @@ plugin_version = "1.0.0"
 
 # The plugin's description. Can be overwritten within OctoPrint's internal data via __plugin_description__ in the plugin
 # module
-plugin_description = """Drives a RGB PWM controller over SPI, providing a status indication of the printer."""
+plugin_description = "Drives a RGB PWM controller over SPI, providing a status indication of the printer."
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
 plugin_author = "Erik Heidstra"
@@ -44,7 +44,7 @@ plugin_requires = []
 plugin_additional_data = []
 
 # Any additional python packages you need to install with your plugin that are not contains in <plugin_package>.*
-plugin_addtional_packages = []
+plugin_additional_packages = []
 
 # Any python packages within <plugin_package>.* you do NOT want to install with your plugin
 plugin_ignored_packages = []
@@ -87,6 +87,8 @@ additional_setup_parameters = { "ext_modules": [gcodeparser_module], "data_files
 #    print("Not on Linux platform. Skipping the build of spirgbleds Python C extension.")
 ########################################################################################################################
 
+
+
 try:
 	import octoprint_setuptools
 except:
@@ -106,7 +108,7 @@ setup_parameters = octoprint_setuptools.create_plugin_setup_parameters(
 	url=plugin_url,
 	license=plugin_license,
 	requires=plugin_requires,
-	additional_packages=plugin_addtional_packages,
+	additional_packages=plugin_additional_packages,
 	ignored_packages=plugin_ignored_packages,
 	additional_data=plugin_additional_data
 )
@@ -114,5 +116,6 @@ setup_parameters = octoprint_setuptools.create_plugin_setup_parameters(
 if len(additional_setup_parameters):
 	from octoprint.util import dict_merge
 	setup_parameters = dict_merge(setup_parameters, additional_setup_parameters)
+
 
 setup(**setup_parameters)

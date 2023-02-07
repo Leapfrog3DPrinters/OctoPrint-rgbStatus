@@ -1,0 +1,81 @@
+input[type="color"] {
+  height: 30px;
+}
+
+table {
+	table-layout:fixed;
+}
+
+.pattern, .hex-color {
+	padding-left: 10px;
+}
+
+.color-picker-wrapper {
+	float: left;
+	width: 32px;
+	height: 20px;
+}
+
+.color-name {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+.color-text {
+	width: 70px;
+	text-transform: uppercase;
+}
+
+.color-rgb {
+	width: 70px;
+	height: 30px;
+}
+
+.checkbox-wrapper .switch {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    width: 40px;
+  }
+
+  .checkbox-wrapper .switch input {
+    display:none;
+  }
+
+  .checkbox-wrapper .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+
+  .checkbox-wrapper .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 12px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 12px;
+  }
+
+  .checkbox-wrapper input:checked + .slider {
+    background-color: #66bb6a;
+  }
+
+  .checkbox-wrapper input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+
+  .checkbox-wrapper .slider.round {
+    border-radius: 22px;
+  }
+
+  .checkbox-wrapper .slider.round:before {
+    border-radius: 50%;
+  }
