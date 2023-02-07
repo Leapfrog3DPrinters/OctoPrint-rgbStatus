@@ -1,13 +1,21 @@
 #include "interface.h"
 
-extern "C" void initspirgbleds(void)
-{
-	(void)Py_InitModule("spirgbleds", SpiRgbLedsMethods);
+static struct PyModuleDef spirgbleds = {
+  PyModuleDef_HEAD_INIT,
+  "spirgbleds",
+  NULL,
+  -1,
+  SpiRgbLedsMethods
+};
+
+PyMODINIT_FUNC PyInit_spirgbleds(void) {
+  return PyModule_Create(&spirgbleds);
 }
 
-PyObject * initialize(PyObject * self, PyObject *args, PyObject *kwargs, char *keywords[])
+
+PyObject *initialize(PyObject * self, PyObject *args, PyObject *kwargs, char *keywords[])
 {
-	char *kwlist[] = { "color", "transitionsEnabled", "transitionRefreshInterval", "transitionTime",  NULL };
+	char *kwlist[] = { (char*)"color", (char*)"transitionsEnabled", (char*)"transitionRefreshInterval", (char*)"transitionTime",  NULL };
 
 	float color[NUM_COLORS] = { 0.0f, 0.0f, 0.0f, 0.0f };
 
@@ -30,7 +38,7 @@ PyObject * initialize(PyObject * self, PyObject *args, PyObject *kwargs, char *k
 	return Py_BuildValue("O", Py_True);
 }
 
-PyObject * start(PyObject *self, PyObject *args)
+PyObject *start(PyObject *self, PyObject *args)
 {
 	if(handler == NULL)
 		return Py_BuildValue("O", Py_False);
@@ -40,7 +48,7 @@ PyObject * start(PyObject *self, PyObject *args)
 	return Py_BuildValue("O", Py_True);
 }
 
-PyObject * stop(PyObject *self, PyObject *args)
+PyObject *stop(PyObject *self, PyObject *args)
 {
 	if (handler == NULL)
 		return Py_BuildValue("O", Py_False);
@@ -50,14 +58,14 @@ PyObject * stop(PyObject *self, PyObject *args)
 	return Py_BuildValue("O", Py_True);
 }
 
-PyObject * set_constant_color(PyObject *self, PyObject *args, PyObject *kwargs, char *keywords[])
+PyObject *set_constant_color(PyObject *self, PyObject *args, PyObject *kwargs, char *keywords[])
 {
 	if (handler == NULL)
 		return Py_BuildValue("O", Py_False);
 
 	char target = 0;
 	float color[NUM_COLORS] = { 0.0f, 0.0f, 0.0f, 0.0f };
-	char *kwlist[] = { "target", "color", NULL };
+	char *kwlist[] = { (char*)"target", (char*)"color", NULL };
 
 	if (!PyArg_ParseTupleAndKeywords(args, kwargs, "i(ffff)", kwlist,
 		&target, &color[0], &color[1], &color[2], &color[3]))
@@ -68,7 +76,7 @@ PyObject * set_constant_color(PyObject *self, PyObject *args, PyObject *kwargs, 
 
 	return Py_BuildValue("O", Py_True);
 }
-PyObject * set_pulsing_color(PyObject *self, PyObject *args, PyObject *kwargs, char *keywords[])
+PyObject *set_pulsing_color(PyObject *self, PyObject *args, PyObject *kwargs, char *keywords[])
 {
 	if (handler == NULL)
 		return Py_BuildValue("O", Py_False);
@@ -76,7 +84,7 @@ PyObject * set_pulsing_color(PyObject *self, PyObject *args, PyObject *kwargs, c
 	char target = 0;
 	float color[NUM_COLORS] = { 0.0f, 0.0f, 0.0f, 0.0f };
 	int speed = 0;
-	char *kwlist[] = { "target", "color", "speed", NULL };
+	char *kwlist[] = { (char*)"target", (char*)"color", (char*)"speed", NULL };
 
 	if (!PyArg_ParseTupleAndKeywords(args, kwargs, "i(ffff)i", kwlist,
 		&target, &color[0], &color[1], &color[2], &color[3], &speed))
@@ -88,7 +96,7 @@ PyObject * set_pulsing_color(PyObject *self, PyObject *args, PyObject *kwargs, c
 	return Py_BuildValue("O", Py_True);
 }
 
-PyObject * set_onoff_color(PyObject *self, PyObject *args, PyObject *kwargs, char *keywords[])
+PyObject *set_onoff_color(PyObject *self, PyObject *args, PyObject *kwargs, char *keywords[])
 {
 	if (handler == NULL)
 		return Py_BuildValue("O", Py_False);
@@ -96,7 +104,7 @@ PyObject * set_onoff_color(PyObject *self, PyObject *args, PyObject *kwargs, cha
 	char target = 0;
 	float color[NUM_COLORS] = { 0.0f, 0.0f, 0.0f, 0.0f };
 	int speed = 0;
-	char *kwlist[] = { "target", "color", "speed", NULL };
+	char *kwlist[] = { (char*)"target", (char*)"color", (char*)"speed", NULL };
 
 	if (!PyArg_ParseTupleAndKeywords(args, kwargs, "i(ffff)i", kwlist,
 		&target, &color[0], &color[1], &color[2], &color[3], &speed))
