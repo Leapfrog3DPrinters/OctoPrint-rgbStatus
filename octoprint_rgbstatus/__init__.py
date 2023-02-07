@@ -333,10 +333,12 @@ class RgbStatusPlugin(SettingsPlugin, BlueprintPlugin, ShutdownPlugin, EventHand
                
                 self._send_color(RgbTarget.BOTH, RgbPatterns.CONSTANT, color)
             elif cmd.startswith("M109") or cmd.startswith("M190"):
-                heating = True
-                if heating != self._heating:
-                    self._heating = heating
+                if self._heating == False:
+                    self._heating = True
                     self._find_current_state()
+            elif self._heating == True and (cmd.startswith("M105") or cmd.startswith("G0") or cmd.startswith("G1")):
+                self._heating = False
+                self._find_current_state()
 
         return None
 
