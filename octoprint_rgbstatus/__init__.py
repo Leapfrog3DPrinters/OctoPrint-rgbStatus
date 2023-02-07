@@ -214,7 +214,7 @@ class RgbStatusPlugin(SettingsPlugin, BlueprintPlugin, ShutdownPlugin, EventHand
             
             if state == "OPERATIONAL":
                 self.on_idle()
-            elif current_state == "OPEN_SERIAL" or current_state == "DETECT_SERIAL" or current_state == "DETECT_BAUDRATE" or current_state == "CONNECTING":
+            elif state == "OPEN_SERIAL" or state == "DETECT_SERIAL" or state == "DETECT_BAUDRATE" or state == "CONNECTING":
                 self.on_startup()
 
     def _find_current_state(self, event = None, payload = None):
